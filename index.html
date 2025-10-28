@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Meauxbility - Providing mobility grants and accessibility services to spinal cord injury survivors across Louisiana's Acadiana region.">
+    <title>Meauxbility | Mobility Grants for SCI Survivors</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/glassmorphic.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-glass">
+        <div class="nav-container">
+            <a href="index.html" class="logo">MEAUXBILITY</a>
+            <ul class="nav-menu">
+                <li><a href="about.html">About</a></li>
+                <li><a href="apply.html">Apply</a></li>
+                <li><a href="donate.html">Donate</a></li>
+                <li><a href="stories.html">Stories</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-glass">
+        <div class="container">
+            <h1 class="hero-title">Empowering Mobility.<br>Restoring Independence.</h1>
+            <p class="hero-subtitle">Supporting spinal cord injury survivors across Acadiana with grants for adaptive equipment and accessibility services.</p>
+            <div class="hero-cta">
+                <a href="apply.html" class="btn btn-primary">Apply for Grant</a>
+                <a href="donate.html" class="btn btn-secondary">Support Our Mission</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUTEC Stack Component -->
+    <section class="mx-stack" aria-labelledby="mx-title">
+        <style>
+            .mx-stack{--bg1:#0b0b2b;--bg2:#1b0262;--bg3:#001d54;--card:#ffffff;--txt:#0f1224;--muted:#6b7280;--brand:#111827;--accent:#4f46e5;--accent2:#2dd4bf;--radius:18px;--gap:14px;--shadow:0 10px 30px rgba(3,7,18,.25);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;color:var(--txt);background:
+            radial-gradient(1200px 700px at 10% 0%, #3b0fff 0, transparent 60%),
+            radial-gradient(900px 600px at 90% 100%, #0ea5e9 0, transparent 55%),
+            linear-gradient(180deg,var(--bg2),var(--bg3));padding:28px 18px}
+            .mx-wrap{max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:28px;align-items:stretch}
+            .mx-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;color:#e5e7eb}
+            .mx-h1{font-weight:800;letter-spacing:.2px;font-size:22px;line-height:1.1;margin:0}
+            .mx-h2{font-weight:700;letter-spacing:.2px;font-size:18px;line-height:1.2;margin:2px 0 0}
+            .mx-grid{display:flex;flex-direction:column;gap:28px}
+            .mx-left,.mx-right{display:flex}
+            .mx-left{flex-direction:column;gap:var(--gap);position:relative}
+            .mx-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px;display:flex;align-items:center;gap:12px;min-height:56px}
+            .mx-card span{font-weight:700;font-size:18px}
+            .mx-ic{width:22px;height:22px;flex:0 0 22px;color:#111827}
+            .mx-app{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px 28px;min-height:76px;display:flex;align-items:center;justify-content:center}
+            .mx-logo{font-weight:900;letter-spacing:.32rem;font-size:20px;color:var(--brand)}
+            .mx-logo .x{color:#2563eb}
+            .mx-hub{display:none}
+            @media (min-width:640px){
+                .mx-grid{flex-direction:row;align-items:stretch}
+                .mx-left{flex:1}
+                .mx-right{flex:1;align-items:center;justify-content:center;position:relative}
+                .mx-hub{display:block;position:absolute;top:0;right:-28px;width:2px;height:100%;background:#d1d5db;border-radius:1px;opacity:.8}
+                .mx-left .mx-card{position:relative}
+                .mx-left .mx-card::after{content:"";position:absolute;top:50%;right:-28px;width:28px;height:2px;background:#d1d5db;transform:translateY(-50%);opacity:.9}
+                .mx-right::before{content:"";position:absolute;left:-28px;top:50%;width:28px;height:2px;background:#d1d5db;transform:translateY(-50%);opacity:.9}
+            }
+            @media (prefers-reduced-motion:no-preference){
+                .mx-card,.mx-app{transition:transform .25s ease, box-shadow .25s ease}
+                .mx-card:hover,.mx-app:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(3,7,18,.28)}
+            }
+        </style>
+
+        <div class="mx-wrap">
+            <header class="mx-head">
+                <h1 class="mx-h1" id="mx-title">Our Meauxbility TRUTEC Stack</h1>
+                <p class="mx-h2">Our Application, simplified.</p>
+            </header>
+
+            <div class="mx-grid" role="list">
+                <!-- LEFT: Stack -->
+                <div class="mx-left">
+                    <i class="mx-hub" aria-hidden="true"></i>
+
+                    <div class="mx-card" role="listitem" aria-label="Messages">
+                        <svg class="mx-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M21 15a4 4 0 0 1-4 4H8l-5 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/>
+                            <path d="M8 9h8M8 13h6"/>
+                        </svg>
+                        <span>Messages</span>
+                    </div>
+
+                    <div class="mx-card" role="listitem" aria-label="API">
+                        <svg class="mx-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/>
+                        </svg>
+                        <span>API</span>
+                    </div>
+
+                    <div class="mx-card" role="listitem" aria-label="Customers">
+                        <svg class="mx-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M20 21a8 8 0 1 0-16 0"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        <span>Customers</span>
+                    </div>
+
+                    <div class="mx-card" role="listitem" aria-label="Brands">
+                        <svg class="mx-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="2" y="5" width="20" height="14" rx="3"/>
+                            <path d="M2 10h20"/>
+                        </svg>
+                        <span>Brands</span>
+                    </div>
+
+                    <div class="mx-card" role="listitem" aria-label="Assets">
+                        <svg class="mx-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                        </svg>
+                        <span>Assets</span>
+                    </div>
+                </div>
+
+                <!-- RIGHT: App box -->
+                <div class="mx-right">
+                    <div class="mx-app" aria-label="Meauxbility Application">
+                        <div class="mx-logo" aria-hidden="true">MEA<span class="x">UX</span>BILITY</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-glass">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>50+</h3>
+                    <p>Grants Awarded</p>
+                </div>
+                <div class="stat-card">
+                    <h3>$250K+</h3>
+                    <p>Funds Distributed</p>
+                </div>
+                <div class="stat-card">
+                    <h3>100%</h3>
+                    <p>Acadiana Coverage</p>
+                </div>
+                <div class="stat-card">
+                    <h3>24/7</h3>
+                    <p>Support Available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-glass">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Meauxbility</h4>
+                    <p>501(c)(3) Nonprofit<br>EIN: 33-4214907</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="apply.html">Apply</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Lafayette, Louisiana<br>Acadiana Region</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Meauxbility. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

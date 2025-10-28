@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Apply for a Meauxbility mobility grant for adaptive equipment and accessibility services.">
+    <title>Apply for Grant | Meauxbility</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/glassmorphic.css">
+</head>
+<body>
+    <nav class="nav-glass">
+        <div class="nav-container">
+            <a href="index.html" class="logo">MEAUXBILITY</a>
+            <ul class="nav-menu">
+                <li><a href="about.html">About</a></li>
+                <li><a href="apply.html" class="active">Apply</a></li>
+                <li><a href="donate.html">Donate</a></li>
+                <li><a href="stories.html">Stories</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-toggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="hero-glass">
+        <div class="container">
+            <h1 class="hero-title">Apply for a Grant</h1>
+            <p class="hero-subtitle">Get the mobility equipment and accessibility services you need.</p>
+        </div>
+    </section>
+
+    <section class="section-glass">
+        <div class="container" style="max-width: 800px;">
+            <div class="glass-card">
+                <h2 style="color: var(--brand-accent); margin-bottom: 2rem;">Grant Application Form</h2>
+                
+                <form id="grantForm">
+                    <div class="form-group">
+                        <label class="form-label">Full Name <span class="form-required">*</span></label>
+                        <input type="text" class="glass-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email <span class="form-required">*</span></label>
+                        <input type="email" class="glass-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Phone Number <span class="form-required">*</span></label>
+                        <input type="tel" class="glass-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Address</label>
+                        <input type="text" class="glass-input" placeholder="Street Address">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">City <span class="form-required">*</span></label>
+                        <input type="text" class="glass-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Grant Type <span class="form-required">*</span></label>
+                        <select class="glass-select" required>
+                            <option value="">Select grant type</option>
+                            <option value="wheelchair">Wheelchair</option>
+                            <option value="home-modification">Home Modification</option>
+                            <option value="vehicle-modification">Vehicle Modification</option>
+                            <option value="adaptive-equipment">Adaptive Equipment</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Amount Requested</label>
+                        <input type="number" class="glass-input" placeholder="$">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Tell us about your need <span class="form-required">*</span></label>
+                        <textarea class="glass-textarea" required placeholder="Describe what equipment or modifications you need and how they will improve your independence..."></textarea>
+                        <span class="form-help">Please be as detailed as possible.</span>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Application</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-glass">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section"><h4>Meauxbility</h4><p>501(c)(3) Nonprofit<br>EIN: 33-4214907</p></div>
+                <div class="footer-section"><h4>Quick Links</h4><ul><li><a href="about.html">About</a></li><li><a href="apply.html">Apply</a></li><li><a href="donate.html">Donate</a></li></ul></div>
+                <div class="footer-section"><h4>Contact</h4><p>Lafayette, Louisiana<br>Acadiana Region</p></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2024 Meauxbility. All rights reserved.</p></div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.getElementById('grantForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (meauxbility.validateForm('grantForm')) {
+                meauxbility.showToast('Application submitted! We\'ll be in touch soon.', 'success');
+                this.reset();
+            }
+        });
+    </script>
+</body>
+</html>
