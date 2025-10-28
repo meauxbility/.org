@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Meauxbility API Dashboard - Monitor and manage integrations with Claude, Cursor, Supabase, Shopify, Google Chat, and other services.">
+    <title>API Dashboard | Meauxbility - Integration Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <style>
+        /* API Dashboard Specific Styles */
+        .api-dashboard {
+            padding: var(--spacing-xl);
+            margin-top: 80px;
+            min-height: calc(100vh - 80px);
+            background: var(--gray-50);
+        }
+
+        [data-theme="dark"] .api-dashboard {
+            background: var(--gray-900);
+        }
+
+        .dashboard-header {
+            margin-bottom: var(--spacing-3xl);
+        }
+
+        .dashboard-title {
+            font-size: 2.5rem;
+            font-weight: var(--font-weight-black);
+            color: var(--gray-900);
+            margin-bottom: var(--spacing-md);
+        }
+
+        [data-theme="dark"] .dashboard-title {
+            color: var(--white);
+        }
+
+        .dashboard-subtitle {
+            font-size: 1.125rem;
+            color: var(--gray-600);
+            max-width: 600px;
+        }
+
+        [data-theme="dark"] .dashboard-subtitle {
+            color: var(--gray-300);
+        }
+
+        .api-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-3xl);
+        }
+
+        .api-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--gray-200);
+            overflow: hidden;
+            transition: all var(--transition-normal);
+        }
+
+        [data-theme="dark"] .api-card {
+            background: var(--gray-800);
+            border-color: var(--gray-700);
+        }
+
+        .api-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .api-header {
+            padding: var(--spacing-xl);
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        [data-theme="dark"] .api-header {
+            border-bottom-color: var(--gray-700);
+        }
+
+        .api-info {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .api-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: var(--font-weight-bold);
+        }
+
+        .api-icon.claude {
+            background: linear-gradient(135deg, #FF6B35, #F7931E);
+            color: var(--white);
+        }
+
+        .api-icon.cursor {
+            background: linear-gradient(135deg, #6366F1, #8B5CF6);
+            color: var(--white);
+        }
+
+        .api-icon.supabase {
+            background: linear-gradient(135deg, #3ECF8E, #1F9A5C);
+            color: var(--white);
+        }
+
+        .api-icon.shopify {
+            background: linear-gradient(135deg, #7AB55C, #5A8A3A);
+            color: var(--white);
+        }
+
+        .api-icon.google {
+            background: linear-gradient(135deg, #4285F4, #34A853);
+            color: var(--white);
+        }
+
+        .api-icon.stripe {
+            background: linear-gradient(135deg, #635BFF, #7C3AED);
+            color: var(--white);
+        }
+
+        .api-details h3 {
+            margin: 0 0 var(--spacing-xs);
+            font-size: 1.25rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--gray-900);
+        }
+
+        [data-theme="dark"] .api-details h3 {
+            color: var(--white);
+        }
+
+        .api-details p {
+            margin: 0;
+            color: var(--gray-600);
+            font-size: 0.875rem;
+        }
+
+        [data-theme="dark"] .api-details p {
+            color: var(--gray-400);
+        }
+
+        .api-status {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: var(--radius-lg);
+            font-size: 0.875rem;
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .api-status.connected {
+            background: #D1FAE5;
+            color: #065F46;
+        }
+
+        [data-theme="dark"] .api-status.connected {
+            background: #064E3B;
+            color: #D1FAE5;
+        }
+
+        .api-status.disconnected {
+            background: #FEE2E2;
+            color: #991B1B;
+        }
+
+        [data-theme="dark"] .api-status.disconnected {
+            background: #7F1D1D;
+            color: #FEE2E2;
+        }
+
+        .api-status.pending {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+
+        [data-theme="dark"] .api-status.pending {
+            background: #78350F;
+            color: #FEF3C7;
+        }
+
+        .api-body {
+            padding: var(--spacing-xl);
+        }
+
+        .api-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: var(--font-weight-black);
+            color: var(--teal);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .metric-label {
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            font-weight: var(--font-weight-medium);
+        }
+
+        [data-theme="dark"] .metric-label {
+            color: var(--gray-400);
+        }
+
+        .api-actions {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+
+        .api-btn {
+            flex: 1;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border: 1px solid var(--gray-300);
+            background: var(--white);
+            color: var(--gray-700);
+            border-radius: var(--radius-md);
+            font-size: 0.875rem;
+            font-weight: var(--font-weight-medium);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        [data-theme="dark"] .api-btn {
+            background: var(--gray-700);
+            border-color: var(--gray-600);
+            color: var(--gray-300);
+        }
+
+        .api-btn:hover {
+            background: var(--gray-100);
+            border-color: var(--gray-400);
+        }
+
+        [data-theme="dark"] .api-btn:hover {
+            background: var(--gray-600);
+            border-color: var(--gray-500);
+        }
+
+        .api-btn.primary {
+            background: var(--teal);
+            color: var(--white);
+            border-color: var(--teal);
+        }
+
+        .api-btn.primary:hover {
+            background: var(--teal-dark);
+            border-color: var(--teal-dark);
+        }
+
+        .api-logs {
+            background: var(--gray-900);
+            color: var(--gray-100);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.875rem;
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: var(--spacing-lg);
+        }
+
+        .log-entry {
+            margin-bottom: var(--spacing-sm);
+            padding: var(--spacing-xs) 0;
+            border-bottom: 1px solid var(--gray-800);
+        }
+
+        .log-time {
+            color: var(--gray-500);
+            margin-right: var(--spacing-md);
+        }
+
+        .log-level {
+            font-weight: var(--font-weight-semibold);
+            margin-right: var(--spacing-md);
+        }
+
+        .log-level.info {
+            color: #60A5FA;
+        }
+
+        .log-level.success {
+            color: #34D399;
+        }
+
+        .log-level.warning {
+            color: #FBBF24;
+        }
+
+        .log-level.error {
+            color: #F87171;
+        }
+
+        .log-message {
+            color: var(--gray-200);
+        }
+
+        .overview-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-3xl);
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--gray-200);
+            text-align: center;
+        }
+
+        [data-theme="dark"] .stat-card {
+            background: var(--gray-800);
+            border-color: var(--gray-700);
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto var(--spacing-md);
+            background: linear-gradient(135deg, var(--teal), var(--orange));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: var(--font-weight-black);
+            color: var(--gray-900);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        [data-theme="dark"] .stat-number {
+            color: var(--white);
+        }
+
+        .stat-label {
+            color: var(--gray-600);
+            font-weight: var(--font-weight-medium);
+        }
+
+        [data-theme="dark"] .stat-label {
+            color: var(--gray-400);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .api-dashboard {
+                padding: var(--spacing-md);
+                margin-top: 60px;
+            }
+
+            .api-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .overview-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .api-metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .api-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header Component -->
+    <header id="header-component"></header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <div class="api-dashboard">
+            <div class="container">
+                <!-- Dashboard Header -->
+                <div class="dashboard-header">
+                    <h1 class="dashboard-title">API Dashboard</h1>
+                    <p class="dashboard-subtitle">
+                        Monitor and manage all your integrations. Track performance, 
+                        view logs, and manage API connections across your Meauxbility ecosystem.
+                    </p>
+                </div>
+
+                <!-- Overview Stats -->
+                <div class="overview-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">🔌</div>
+                        <div class="stat-number">6</div>
+                        <div class="stat-label">Active APIs</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-number">1,247</div>
+                        <div class="stat-label">Requests Today</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⚡</div>
+                        <div class="stat-number">98.5%</div>
+                        <div class="stat-label">Uptime</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🕒</div>
+                        <div class="stat-number">142ms</div>
+                        <div class="stat-label">Avg Response</div>
+                    </div>
+                </div>
+
+                <!-- API Cards -->
+                <div class="api-grid">
+                    <!-- Claude AI -->
+                    <div class="api-card">
+                        <div class="api-header">
+                            <div class="api-info">
+                                <div class="api-icon claude">C</div>
+                                <div class="api-details">
+                                    <h3>Claude AI</h3>
+                                    <p>Anthropic's AI Assistant</p>
+                                </div>
+                            </div>
+                            <div class="api-status connected">
+                                <span>●</span>
+                                Connected
+                            </div>
+                        </div>
+                        <div class="api-body">
+                            <div class="api-metrics">
+                                <div class="metric">
+                                    <div class="metric-value">89</div>
+                                    <div class="metric-label">Requests</div>
+                                </div>
+                                <div class="metric">
+                                    <div class="metric-value">2.1s</div>
+                                    <div class="metric-label">Avg Response</div>
+                                </div>
+                            </div>
+                            <div class="api-actions">
+                                <button class="api-btn" onclick="testAPI('claude')">Test</button>
+                                <button class="api-btn primary" onclick="configureAPI('claude')">Configure</button>
+                            </div>
+                            <div class="api-logs">
+                                <div class="log-entry">
+                                    <span class="log-time">14:32:15</span>
+                                    <span class="log-level success">SUCCESS</span>
+                                    <span class="log-message">Generated response for user query</span>
+                                </div>
+                                <div class="log-entry">
+                                    <span class="log-time">14:28:42</span>
+                                    <span class="log-level info">INFO</span>
+                                    <span class="log-message">API key validated successfully</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cursor -->
+                    <div class="api-card">
+                        <div class="api-header">
+                            <div class="api-info">
+                                <div class="api-icon cursor">⌨</div>
+                                <div class="api-details">
+                                    <h3>Cursor</h3>
+                                    <p>AI-Powered Code Editor</p>
+                                </div>
+                            </div>
+                            <div class="api-status connected">
+                                <span>●</span>
+                                Connected
+                            </div>
+                        </div>
+                        <div class="api-body">
+                            <div class="api-metrics">
+                                <div class="metric">
+                                    <div class="metric-value">156</div>
+                                    <div class="metric-label">Code Completions</div>
+                                </div>
+                                <div class="metric">
+                                    <div class="metric-value">1.8s</div>
+                                    <div class="metric-label">Avg Response</div>
+                                </div>
+                            </div>
+                            <div class="api-actions">
+                                <button class="api-btn" onclick="testAPI('cursor')">Test</button>
+                                <button class="api-btn primary" onclick="configureAPI('cursor')">Configure</button>
+                            </div>
+                            <div class="api-logs">
+                                <div class="log-entry">
+                                    <span class="log-time">14:35:22</span>
+                                    <span class="log-level success">SUCCESS</span>
+                                    <span class="log-message">Code completion generated</span>
+                                </div>
+                                <div class="log-entry">
+                                    <span class="log-time">14:33:18</span>
+                                    <span class="log-level info">INFO</span>
+                                    <span class="log-message">Workspace synchronized</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Supabase -->
+                    <div class="api-card">
+                        <div class="api-header">
+                            <div class="api-info">
+                                <div class="api-icon supabase">S</div>
+                                <div class="api-details">
+                                    <h3>Supabase</h3>
+                                    <p>Database & Auth</p>
+                                </div>
+                            </div>
+                            <div class="api-status connected">
+                                <span>●</span>
+                                Connected
+                            </div>
+                        </div>
+                        <div class="api-body">
+                            <div class="api-metrics">
+                                <div class="metric">
+                                    <div class="metric-value">2.3K</div>
+                                    <div class="metric-label">Queries</div>
+                                </div>
+                                <div class="metric">
+                                    <div class="metric-value">45ms</div>
+                                    <div class="metric-label">Avg Response</div>
+                                </div>
+                            </div>
+                            <div class="api-actions">
+                                <button class="api-btn" onclick="testAPI('supabase')">Test</button>
+                                <button class="api-btn primary" onclick="configureAPI('supabase')">Configure</button>
+                            </div>
+                            <div class="api-logs">
+                                <div class="log-entry">
+                                    <span class="log-time">14:36:45</span>
+                                    <span class="log-level success">SUCCESS</span>
+                                    <span class="log-message">User authentication successful</span>
+                                </div>
+                                <div class="log-entry">
+                                    <span class="log-time">14:35:12</span>
+                                    <span class="log-level info">INFO</span>
+                                    <span class="log-message">Database backup completed</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Shopify -->
+                    <div class="api-card">
+                        <div class="api-header">
+                            <div class="api-info">
+                                <div class="api-icon shopify">🛍</div>
+                                <div class="api-details">
+                                    <h3>Shopify</h3>
+                                    <p>E-commerce Platform</p>
+                                </div>
+                            </div>
+                            <div class="api-status connected">
+                                <span>●</span>
+                                Connected
+                            </div>
+                        </div>
+                        <div class="api-body">
+                            <div class="api-metrics">
+                                <div class="metric">
+                                    <div class="metric-value">23</div>
+                                    <div class="metric-label">Orders</div>
+                                </div>
+                                <div class="metric">
+                                    <div class="metric-value">320ms</div>
+                                    <div class="metric-label">Avg Response</div>
+                                </div>
+                            </div>
+                            <div class="api-actions">
+                                <button class="api-btn" onclick="testAPI('shopify')">Test</button>
+                                <button class="api-btn primary" onclick="configureAPI('shopify')">Configure</button>
+                            </div>
+                            <div class="api-logs">
+                                <div class="log-entry">
+                                    <span class="log-time">14:38:33</span>
+                                    <span class="log-level success">SUCCESS</span>
+                                    <span class="log-message">Order processed successfully</span>
+                                </div>
+                                <div class="log-entry">
+                                    <span class="log-time">14:37:21</span>
+                                    <span class="log-level info">INFO</span>
+                                    <span class="log-message">Inventory updated</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Google Chat/Meet -->
+                    <div class="api-card">
+                        <div class="api-header">
+                            <div class="api-info">
+                                <div class="api-icon google">G</div>
+                                <div class="api-details">
+                                    <h3>Google Chat</h3>
+                                    <p>Communication Platform</p>
+                                </div>
+                            </div>
+                            <div class="api-status connected">
+                                <span>●</span>
+                                Connected
+                            </div>
+                        </div>
+                        <div class="api-body">
+                            <div class="api-metrics">
+                                <div class="metric">
+                                    <div class="metric-value">67</div>
+                                    <div class="metric-label">Messages</div>
+                                </div>
+                                <div class="metric">
+                                    <div class="metric-value">180ms</div>
+                                    <div class="metric-label">Avg Response</div>
+                                </div>
+                            </div>
+                            <div class="api-actions">
+                                <button class="api-btn" onclick="testAPI('google')">Test</button>
+                                <button class="api-btn primary" onclick="configureAPI('google')">Configure</button>
+                            </div>
+                            <div class="api-logs">
+                                <div class="log-entry">
+                                    <span class="log-time">14:39:15</span>
+                                    <span class="log-level success">SUCCESS</span>
+                                    <span class="log-message">Message sent to team channel</span>
+                                </div>
+                                <div class="log-entry">
+                                    <span class="log-time">14:38:44</span>
+                                    <span class="log-level info">INFO</span>
+                                    <span class="log-message">Meeting room created</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stripe -->
+                    <div class="api-card">
+                        <div class="api-header">
+                            <div class="api-info">
+                                <div class="api-icon stripe">💳</div>
+                                <div class="api-details">
+                                    <h3>Stripe</h3>
+                                    <p>Payment Processing</p>
+                                </div>
+                            </div>
+                            <div class="api-status pending">
+                                <span>●</span>
+                                Pending Setup
+                            </div>
+                        </div>
+                        <div class="api-body">
+                            <div class="api-metrics">
+                                <div class="metric">
+                                    <div class="metric-value">0</div>
+                                    <div class="metric-label">Transactions</div>
+                                </div>
+                                <div class="metric">
+                                    <div class="metric-value">--</div>
+                                    <div class="metric-label">Avg Response</div>
+                                </div>
+                            </div>
+                            <div class="api-actions">
+                                <button class="api-btn" onclick="testAPI('stripe')">Test</button>
+                                <button class="api-btn primary" onclick="configureAPI('stripe')">Setup</button>
+                            </div>
+                            <div class="api-logs">
+                                <div class="log-entry">
+                                    <span class="log-time">14:40:12</span>
+                                    <span class="log-level warning">WARNING</span>
+                                    <span class="log-message">API key not configured</span>
+                                </div>
+                                <div class="log-entry">
+                                    <span class="log-time">14:40:12</span>
+                                    <span class="log-level info">INFO</span>
+                                    <span class="log-message">Waiting for configuration</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Component -->
+    <footer id="footer-component"></footer>
+
+    <!-- Scripts -->
+    <script src="js/load-components.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/footer.js"></script>
+    <script>
+        // API Dashboard functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeDashboard();
+            startRealTimeUpdates();
+        });
+
+        function initializeDashboard() {
+            // Initialize dashboard with current data
+            updateMetrics();
+            updateLogs();
+        }
+
+        function startRealTimeUpdates() {
+            // Simulate real-time updates
+            setInterval(() => {
+                updateMetrics();
+                addRandomLog();
+            }, 30000); // Update every 30 seconds
+        }
+
+        function updateMetrics() {
+            // Simulate metric updates
+            const metrics = document.querySelectorAll('.metric-value');
+            metrics.forEach(metric => {
+                if (metric.textContent.includes('K')) {
+                    const currentValue = parseInt(metric.textContent.replace('K', '')) * 1000;
+                    const newValue = currentValue + Math.floor(Math.random() * 10);
+                    metric.textContent = (newValue / 1000).toFixed(1) + 'K';
+                } else if (metric.textContent.includes('ms')) {
+                    const currentValue = parseInt(metric.textContent.replace('ms', ''));
+                    const newValue = currentValue + Math.floor(Math.random() * 20) - 10;
+                    metric.textContent = Math.max(10, newValue) + 'ms';
+                } else if (metric.textContent.includes('%')) {
+                    const currentValue = parseFloat(metric.textContent.replace('%', ''));
+                    const newValue = currentValue + (Math.random() * 0.2 - 0.1);
+                    metric.textContent = Math.min(100, Math.max(99, newValue)).toFixed(1) + '%';
+                } else if (!isNaN(parseInt(metric.textContent))) {
+                    const currentValue = parseInt(metric.textContent);
+                    const newValue = currentValue + Math.floor(Math.random() * 5);
+                    metric.textContent = newValue;
+                }
+            });
+        }
+
+        function addRandomLog() {
+            const logs = document.querySelectorAll('.api-logs');
+            logs.forEach(log => {
+                const logEntry = document.createElement('div');
+                logEntry.className = 'log-entry';
+                
+                const time = new Date().toLocaleTimeString();
+                const levels = ['info', 'success', 'warning'];
+                const level = levels[Math.floor(Math.random() * levels.length)];
+                const messages = [
+                    'API request processed',
+                    'Data synchronized successfully',
+                    'Connection established',
+                    'Response generated',
+                    'Cache updated',
+                    'Authentication verified'
+                ];
+                const message = messages[Math.floor(Math.random() * messages.length)];
+                
+                logEntry.innerHTML = `
+                    <span class="log-time">${time}</span>
+                    <span class="log-level ${level}">${level.toUpperCase()}</span>
+                    <span class="log-message">${message}</span>
+                `;
+                
+                log.insertBefore(logEntry, log.firstChild);
+                
+                // Keep only last 5 log entries
+                while (log.children.length > 5) {
+                    log.removeChild(log.lastChild);
+                }
+            });
+        }
+
+        function testAPI(apiName) {
+            const button = event.target;
+            const originalText = button.textContent;
+            
+            button.textContent = 'Testing...';
+            button.disabled = true;
+            
+            // Simulate API test
+            setTimeout(() => {
+                button.textContent = 'Success!';
+                button.style.background = '#10B981';
+                button.style.color = 'white';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.disabled = false;
+                    button.style.background = '';
+                    button.style.color = '';
+                }, 2000);
+            }, 1500);
+        }
+
+        function configureAPI(apiName) {
+            // In a real app, this would open a configuration modal
+            const configData = {
+                claude: {
+                    name: 'Claude AI',
+                    fields: ['API Key', 'Model', 'Max Tokens', 'Temperature']
+                },
+                cursor: {
+                    name: 'Cursor',
+                    fields: ['API Key', 'Workspace ID', 'Model', 'Settings']
+                },
+                supabase: {
+                    name: 'Supabase',
+                    fields: ['Project URL', 'Anon Key', 'Service Role Key', 'Database URL']
+                },
+                shopify: {
+                    name: 'Shopify',
+                    fields: ['Shop Domain', 'Access Token', 'Webhook Secret', 'API Version']
+                },
+                google: {
+                    name: 'Google Chat',
+                    fields: ['Client ID', 'Client Secret', 'Webhook URL', 'Scopes']
+                },
+                stripe: {
+                    name: 'Stripe',
+                    fields: ['Publishable Key', 'Secret Key', 'Webhook Secret', 'Account ID']
+                }
+            };
+            
+            const config = configData[apiName];
+            if (config) {
+                alert(`Configure ${config.name}:\n\nFields: ${config.fields.join(', ')}\n\nIn production, this would open a configuration modal.`);
+            }
+        }
+
+        // Theme toggle functionality
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        }
+    </script>
+</body>
+</html>
