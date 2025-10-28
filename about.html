@@ -1,143 +1,276 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn about Meauxbility's mission to support spinal cord injury survivors in Louisiana's Acadiana region.">
-    <title>About Us | Meauxbility</title>
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/glassmorphic.css">
+    <meta name="description" content="About Meauxbility - Transform Your Pain into Purpose. Learn our story of empowering spinal cord injury survivors with mobility, independence, and hope.">
+    <title>About Us | Meauxbility - Transform Your Pain into Purpose</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav-glass">
-        <div class="nav-container">
-            <a href="index.html" class="logo">MEAUXBILITY</a>
-            <ul class="nav-menu">
-                <li><a href="about.html" class="active">About</a></li>
-                <li><a href="apply.html">Apply</a></li>
-                <li><a href="donate.html">Donate</a></li>
-                <li><a href="stories.html">Stories</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <button class="mobile-toggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </nav>
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- Hero Section -->
-    <section class="hero-glass">
-        <div class="container">
-            <h1 class="hero-title">Our Mission</h1>
-            <p class="hero-subtitle">Empowering spinal cord injury survivors across Acadiana with mobility grants and accessibility services.</p>
-        </div>
-    </section>
+    <!-- Header Component -->
+    <header id="header-component"></header>
 
-    <!-- About Content -->
-    <section class="section-glass">
-        <div class="container">
-            <div class="glass-grid">
-                <!-- Mission Card -->
-                <div class="glass-card animate-on-scroll">
-                    <h2 style="color: var(--brand-accent); margin-bottom: 1rem;">Why We Exist</h2>
-                    <p>Founded by someone who understands firsthand the challenges of spinal cord injury, Meauxbility bridges the gap between need and mobility. We provide critical grants for adaptive equipment and accessibility modifications that insurance won't cover.</p>
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero-about">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Transform Your <span class="highlight">Pain</span><br>
+                        Into <span class="highlight">Purpose</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Our journey from personal struggle to community empowerment, 
+                        turning lived experience into a roadmap others can follow to recovery.
+                    </p>
                 </div>
-
-                <!-- Vision Card -->
-                <div class="glass-card animate-on-scroll">
-                    <h2 style="color: var(--brand-accent); margin-bottom: 1rem;">Our Vision</h2>
-                    <p>A world where every spinal cord injury survivor in Acadiana has access to the mobility equipment and services they need to live independently and with dignity.</p>
-                </div>
-
-                <!-- Values Card -->
-                <div class="glass-card animate-on-scroll">
-                    <h2 style="color: var(--brand-accent); margin-bottom: 1rem;">Our Values</h2>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 0.5rem;">✓ Dignity & Independence</li>
-                        <li style="margin-bottom: 0.5rem;">✓ Community-Driven</li>
-                        <li style="margin-bottom: 0.5rem;">✓ Accessibility for All</li>
-                        <li style="margin-bottom: 0.5rem;">✓ Transparency & Trust</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Team Section -->
-            <div style="margin-top: 4rem;">
-                <h2 style="text-align: center; font-size: 2rem; margin-bottom: 2rem;">Our Team</h2>
-                <div class="glass-grid">
-                    <div class="glass-card animate-on-scroll">
-                        <h3 style="color: var(--brand-accent);">Sam</h3>
-                        <p style="color: var(--text-muted); margin-bottom: 1rem;">CEO & Founder</p>
-                        <p>UI/UX Engineer with personal experience navigating life with SCI. Passionate about creating accessible solutions for the disability community.</p>
-                    </div>
-
-                    <div class="glass-card animate-on-scroll">
-                        <h3 style="color: var(--brand-accent);">Connor McNeely</h3>
-                        <p style="color: var(--text-muted); margin-bottom: 1rem;">CTO</p>
-                        <p>Technical leader building the infrastructure that powers our grant platform and community services.</p>
-                    </div>
-
-                    <div class="glass-card animate-on-scroll">
-                        <h3 style="color: var(--brand-accent);">Fred Williams</h3>
-                        <p style="color: var(--text-muted); margin-bottom: 1rem;">CMO</p>
-                        <p>Marketing strategist connecting our mission with donors and spreading awareness across Acadiana.</p>
+                <div class="hero-visual">
+                    <div class="pain-to-purpose-animation">
+                        <div class="pain-circle" data-animation="pain"></div>
+                        <div class="arrow-transformation" data-animation="arrow"></div>
+                        <div class="purpose-circle" data-animation="purpose"></div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Non-Profit Info -->
-            <div class="glass-card animate-on-scroll" style="margin-top: 4rem; text-align: center;">
-                <h2 style="color: var(--brand-accent); margin-bottom: 1rem;">501(c)(3) Nonprofit Organization</h2>
-                <p style="font-size: 1.1rem; margin-bottom: 0.5rem;">EIN: 33-4214907</p>
-                <p style="color: var(--text-muted);">All donations are tax-deductible to the fullest extent allowed by law.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="section-glass">
-        <div class="container" style="text-align: center;">
-            <h2 style="font-size: 2rem; margin-bottom: 1rem;">Ready to Make a Difference?</h2>
-            <p style="color: var(--text-secondary); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">Whether you need support or want to help others, we're here for you.</p>
-            <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center;">
-                <a href="apply.html" class="btn btn-primary">Apply for a Grant</a>
-                <a href="donate.html" class="btn btn-secondary">Support Our Mission</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer-glass">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Meauxbility</h4>
-                    <p>501(c)(3) Nonprofit<br>EIN: 33-4214907</p>
+        <!-- Founder's Story -->
+        <section class="founder-story">
+            <div class="container">
+                <div class="story-grid">
+                    <div class="story-content">
+                        <h2>Experience-Driven Recovery</h2>
+                        <p class="story-intro">
+                            Founded by Sam Primeaux after his 2017 paralysis, Meauxbility turns 
+                            lived experience into a roadmap others can follow to recovery.
+                        </p>
+                        <div class="story-timeline">
+                            <div class="timeline-item" data-animation="timeline">
+                                <div class="timeline-marker">2017</div>
+                                <div class="timeline-content">
+                                    <h3>The Journey Begins</h3>
+                                    <p>Sam's life changed forever, but instead of letting pain define him, he chose to transform it into purpose.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item" data-animation="timeline">
+                                <div class="timeline-marker">2020</div>
+                                <div class="timeline-content">
+                                    <h3>Community Building</h3>
+                                    <p>Recognizing the need for support, Sam began connecting with other survivors and building a community.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item" data-animation="timeline">
+                                <div class="timeline-marker">2024</div>
+                                <div class="timeline-content">
+                                    <h3>Meauxbility Founded</h3>
+                                    <p>Formalizing the mission to provide mobility grants and accessibility services across Acadiana.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story-image">
+                        <div class="image-placeholder">
+                            <div class="founder-photo" data-animation="photo">
+                                <div class="photo-overlay">
+                                    <h3>Sam Primeaux</h3>
+                                    <p>Founder & CEO</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="apply.html">Apply</a></li>
-                        <li><a href="donate.html">Donate</a></li>
-                        <li><a href="stories.html">Stories</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Lafayette, Louisiana<br>Acadiana Region</p>
-                </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Meauxbility. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+        </section>
 
-    <script src="assets/js/main.js"></script>
+        <!-- Mission Deep Dive -->
+        <section class="mission-deep">
+            <div class="container">
+                <h2 class="section-title">Our Mission in Action</h2>
+                <div class="mission-grid">
+                    <div class="mission-card" data-animation="card">
+                        <div class="card-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <h3>Empowerment</h3>
+                        <p>We believe every individual has the strength to overcome challenges and build a meaningful life.</p>
+                    </div>
+                    <div class="mission-card" data-animation="card">
+                        <div class="card-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <h3>Community</h3>
+                        <p>Building connections between survivors, families, and supporters to create a network of hope.</p>
+                    </div>
+                    <div class="mission-card" data-animation="card">
+                        <div class="card-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                            </svg>
+                        </div>
+                        <h3>Innovation</h3>
+                        <p>Leveraging technology and modern approaches to make mobility and independence more accessible.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section class="values-section">
+            <div class="container">
+                <h2 class="section-title">Our Core Values</h2>
+                <div class="values-grid">
+                    <div class="value-item" data-animation="value">
+                        <div class="value-number">01</div>
+                        <h3>Authenticity</h3>
+                        <p>We share real experiences, not just success stories. Our journey includes setbacks, struggles, and triumphs.</p>
+                    </div>
+                    <div class="value-item" data-animation="value">
+                        <div class="value-number">02</div>
+                        <h3>Compassion</h3>
+                        <p>Every interaction is guided by empathy and understanding. We've been there, and we're here to help.</p>
+                    </div>
+                    <div class="value-item" data-animation="value">
+                        <div class="value-number">03</div>
+                        <h3>Resilience</h3>
+                        <p>We believe in the human spirit's ability to adapt, overcome, and thrive in the face of adversity.</p>
+                    </div>
+                    <div class="value-item" data-animation="value">
+                        <div class="value-number">04</div>
+                        <h3>Hope</h3>
+                        <p>Even in the darkest moments, we hold onto hope and help others find their own light.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="team-section">
+            <div class="container">
+                <h2 class="section-title">Meet Our Team</h2>
+                <div class="team-grid">
+                    <div class="team-member" data-animation="member">
+                        <div class="member-photo">
+                            <div class="photo-placeholder">
+                                <span>SP</span>
+                            </div>
+                        </div>
+                        <h3>Sam Primeaux</h3>
+                        <p class="role">CEO & Founder</p>
+                        <p class="bio">Spinal cord injury survivor turned advocate, leading our mission to transform pain into purpose.</p>
+                    </div>
+                    <div class="team-member" data-animation="member">
+                        <div class="member-photo">
+                            <div class="photo-placeholder">
+                                <span>CT</span>
+                            </div>
+                        </div>
+                        <h3>Connor</h3>
+                        <p class="role">CTO</p>
+                        <p class="bio">Technology innovator building the platforms that connect our community and streamline our services.</p>
+                    </div>
+                    <div class="team-member" data-animation="member">
+                        <div class="member-photo">
+                            <div class="photo-placeholder">
+                                <span>FD</span>
+                            </div>
+                        </div>
+                        <h3>Fred</h3>
+                        <p class="role">CMO</p>
+                        <p class="bio">Marketing strategist amplifying our message and building partnerships across the Acadiana region.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Transform Your Journey?</h2>
+                    <p>Join our community of survivors, supporters, and advocates working together to create more access—and more life.</p>
+                    <div class="cta-actions">
+                        <a href="connect.html" class="btn btn-primary">Get Connected</a>
+                        <a href="programs.html" class="btn btn-secondary">Explore Programs</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component -->
+    <footer id="footer-component"></footer>
+
+    <!-- Scripts -->
+    <script src="js/load-components.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/footer.js"></script>
+    <script>
+        // GSAP Animations for About Page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Pain to Purpose Animation
+            gsap.timeline({ repeat: -1, yoyo: true })
+                .to('.pain-circle', { scale: 1.1, duration: 2, ease: "power2.inOut" })
+                .to('.arrow-transformation', { rotation: 5, duration: 1 }, "-=1")
+                .to('.purpose-circle', { scale: 1.1, duration: 2, ease: "power2.inOut" }, "-=1");
+
+            // Scroll-triggered animations
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Timeline items
+            gsap.from('.timeline-item', {
+                scrollTrigger: '.timeline-item',
+                x: -100,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.2
+            });
+
+            // Mission cards
+            gsap.from('.mission-card', {
+                scrollTrigger: '.mission-card',
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.2
+            });
+
+            // Values
+            gsap.from('.value-item', {
+                scrollTrigger: '.value-item',
+                scale: 0.8,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.1
+            });
+
+            // Team members
+            gsap.from('.team-member', {
+                scrollTrigger: '.team-member',
+                y: 30,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.2
+            });
+        });
+    </script>
 </body>
 </html>

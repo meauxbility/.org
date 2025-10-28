@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Connect with Meauxbility - Contact us, apply for grants, or get involved. We're here to support spinal cord injury survivors in Louisiana's Acadiana region.">
+    <title>Connect | Meauxbility - Get in Touch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+    <!-- Skip Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header Component -->
+    <header id="header-component"></header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero-connect">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Connect With Us</h1>
+                    <p class="hero-subtitle">
+                        Ready to take the next step? Whether you need support, want to apply for a grant, 
+                        or are looking to get involved, we're here to help.
+                    </p>
+                    <div class="connect-options">
+                        <a href="#apply" class="connect-card">
+                            <div class="card-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 12l2 2 4-4"/>
+                                    <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
+                                    <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"/>
+                                    <path d="M12 3c0 1-1 3-3 3s-3-2-3-3 1-3 3-3 3 2 3 3"/>
+                                    <path d="M12 21c0-1 1-3 3-3s3 2 3 3-1 3-3 3-3-2-3-3"/>
+                                </svg>
+                            </div>
+                            <h3>Apply for Grant</h3>
+                            <p>Start your application for mobility grants and accessibility services</p>
+                        </a>
+                        <a href="#contact" class="connect-card">
+                            <div class="card-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                            </div>
+                            <h3>Contact Us</h3>
+                            <p>Get in touch with questions, support, or general inquiries</p>
+                        </a>
+                        <a href="#volunteer" class="connect-card">
+                            <div class="card-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                </svg>
+                            </div>
+                            <h3>Get Involved</h3>
+                            <p>Volunteer, donate, or become part of our community</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Application Form -->
+        <section id="apply" class="application-section">
+            <div class="container">
+                <h2 class="section-title">Grant Application</h2>
+                <div class="application-form-container">
+                    <form class="application-form" id="grant-application">
+                        <div class="form-section">
+                            <h3>Personal Information</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="firstName">First Name *</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name *</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number *</label>
+                                    <input type="tel" id="phone" name="phone" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">Street Address *</label>
+                                    <input type="text" id="address" name="address" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="city">City *</label>
+                                    <input type="text" id="city" name="city" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="state">State *</label>
+                                    <select id="state" name="state" required>
+                                        <option value="">Select State</option>
+                                        <option value="LA">Louisiana</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="zip">ZIP Code *</label>
+                                    <input type="text" id="zip" name="zip" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Medical Information</h3>
+                            <div class="form-group">
+                                <label for="injuryDate">Date of Injury *</label>
+                                <input type="date" id="injuryDate" name="injuryDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="injuryLevel">Injury Level *</label>
+                                <select id="injuryLevel" name="injuryLevel" required>
+                                    <option value="">Select Injury Level</option>
+                                    <option value="C1-C4">C1-C4 (High Cervical)</option>
+                                    <option value="C5-C8">C5-C8 (Low Cervical)</option>
+                                    <option value="T1-T6">T1-T6 (High Thoracic)</option>
+                                    <option value="T7-T12">T7-T12 (Low Thoracic)</option>
+                                    <option value="L1-L5">L1-L5 (Lumbar)</option>
+                                    <option value="S1-S5">S1-S5 (Sacral)</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="currentEquipment">Current Equipment</label>
+                                <textarea id="currentEquipment" name="currentEquipment" rows="3" placeholder="Describe any current mobility equipment you use"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Grant Request</h3>
+                            <div class="form-group">
+                                <label for="grantType">Type of Grant Requested *</label>
+                                <select id="grantType" name="grantType" required>
+                                    <option value="">Select Grant Type</option>
+                                    <option value="wheelchair">Wheelchair/Mobility Equipment</option>
+                                    <option value="vehicle">Vehicle Modification</option>
+                                    <option value="home">Home Accessibility</option>
+                                    <option value="emergency">Emergency Equipment</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="requestedAmount">Requested Amount *</label>
+                                <input type="number" id="requestedAmount" name="requestedAmount" min="0" max="5000" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="equipmentDescription">Equipment/Service Description *</label>
+                                <textarea id="equipmentDescription" name="equipmentDescription" rows="4" required placeholder="Describe the specific equipment or services you need"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="vendorQuote">Vendor Quote (if available)</label>
+                                <input type="file" id="vendorQuote" name="vendorQuote" accept=".pdf,.jpg,.jpeg,.png">
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Financial Information</h3>
+                            <div class="form-group">
+                                <label for="annualIncome">Annual Household Income *</label>
+                                <select id="annualIncome" name="annualIncome" required>
+                                    <option value="">Select Income Range</option>
+                                    <option value="0-15000">$0 - $15,000</option>
+                                    <option value="15001-25000">$15,001 - $25,000</option>
+                                    <option value="25001-35000">$25,001 - $35,000</option>
+                                    <option value="35001-50000">$35,001 - $50,000</option>
+                                    <option value="50001-75000">$50,001 - $75,000</option>
+                                    <option value="75001+">$75,001+</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="insurance">Insurance Coverage</label>
+                                <textarea id="insurance" name="insurance" rows="2" placeholder="Describe your current insurance coverage"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="otherFunding">Other Funding Sources</label>
+                                <textarea id="otherFunding" name="otherFunding" rows="2" placeholder="List any other funding sources you've explored or received"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Additional Information</h3>
+                            <div class="form-group">
+                                <label for="additionalInfo">Additional Information</label>
+                                <textarea id="additionalInfo" name="additionalInfo" rows="4" placeholder="Any additional information that would help us understand your needs"></textarea>
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="consent" name="consent" required>
+                                    <span class="checkmark"></span>
+                                    I consent to Meauxbility contacting me regarding this application and sharing my information with relevant service providers. *
+                                </label>
+                            </div>
+                            <div class="form-group checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="newsletter" name="newsletter">
+                                    <span class="checkmark"></span>
+                                    I would like to receive updates about Meauxbility programs and events.
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Submit Application</button>
+                            <button type="reset" class="btn btn-secondary">Reset Form</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Information -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="section-title">Contact Information</h2>
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <h3>General Inquiries</h3>
+                        <div class="contact-info">
+                            <p><strong>Email:</strong> info@meauxbility.org</p>
+                            <p><strong>Phone:</strong> (337) 450-9998</p>
+                            <p><strong>Address:</strong> Lafayette, Louisiana</p>
+                        </div>
+                        <a href="mailto:info@meauxbility.org" class="btn btn-primary">Send Email</a>
+                    </div>
+
+                    <div class="contact-card">
+                        <h3>Grant Applications</h3>
+                        <div class="contact-info">
+                            <p><strong>Email:</strong> grants@meauxbility.org</p>
+                            <p><strong>Phone:</strong> (337) 450-9998</p>
+                            <p><strong>Hours:</strong> Mon-Fri, 9AM-5PM</p>
+                        </div>
+                        <a href="mailto:grants@meauxbility.org" class="btn btn-primary">Contact Grants</a>
+                    </div>
+
+                    <div class="contact-card">
+                        <h3>Emergency Support</h3>
+                        <div class="contact-info">
+                            <p><strong>Hotline:</strong> (337) 450-9998</p>
+                            <p><strong>Available:</strong> 24/7</p>
+                            <p><strong>For:</strong> Urgent equipment needs</p>
+                        </div>
+                        <a href="tel:3374509998" class="btn btn-primary">Call Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Volunteer Opportunities -->
+        <section id="volunteer" class="volunteer-section">
+            <div class="container">
+                <h2 class="section-title">Get Involved</h2>
+                <div class="volunteer-grid">
+                    <div class="volunteer-card">
+                        <h3>Volunteer Opportunities</h3>
+                        <p>Join our team of dedicated volunteers making a difference in the community.</p>
+                        <ul>
+                            <li>Event coordination and support</li>
+                            <li>Peer mentoring and support</li>
+                            <li>Administrative assistance</li>
+                            <li>Community outreach</li>
+                            <li>Fundraising support</li>
+                        </ul>
+                        <a href="mailto:volunteer@meauxbility.org" class="btn btn-primary">Volunteer</a>
+                    </div>
+
+                    <div class="volunteer-card">
+                        <h3>Donation Options</h3>
+                        <p>Support our mission through various donation opportunities.</p>
+                        <ul>
+                            <li>One-time donations</li>
+                            <li>Monthly giving program</li>
+                            <li>Equipment donations</li>
+                            <li>Corporate partnerships</li>
+                            <li>Memorial and tribute gifts</li>
+                        </ul>
+                        <a href="donate.html" class="btn btn-primary">Donate</a>
+                    </div>
+
+                    <div class="volunteer-card">
+                        <h3>Community Partnerships</h3>
+                        <p>Partner with us to expand our impact across Acadiana.</p>
+                        <ul>
+                            <li>Healthcare provider partnerships</li>
+                            <li>Business collaborations</li>
+                            <li>Educational partnerships</li>
+                            <li>Community organization alliances</li>
+                            <li>Media and awareness campaigns</li>
+                        </ul>
+                        <a href="mailto:partnerships@meauxbility.org" class="btn btn-primary">Partner</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Signup -->
+        <section class="newsletter-section">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2>Stay Connected</h2>
+                    <p>Get updates on programs, events, and resources delivered to your inbox.</p>
+                    <form class="newsletter-form" id="newsletter-signup">
+                        <div class="form-group">
+                            <input type="email" id="newsletterEmail" name="newsletterEmail" placeholder="Enter your email address" required>
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </div>
+                        <p class="newsletter-disclaimer">
+                            We respect your privacy. Unsubscribe at any time.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component -->
+    <footer id="footer-component"></footer>
+
+    <!-- Scripts -->
+    <script src="js/load-components.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/footer.js"></script>
+    <script>
+        // Form handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const applicationForm = document.getElementById('grant-application');
+            const newsletterForm = document.getElementById('newsletter-signup');
+
+            // Application form submission
+            applicationForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Basic form validation
+                const requiredFields = applicationForm.querySelectorAll('[required]');
+                let isValid = true;
+                
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        field.classList.add('error');
+                        isValid = false;
+                    } else {
+                        field.classList.remove('error');
+                    }
+                });
+
+                if (isValid) {
+                    // Show success message
+                    showMessage('Application submitted successfully! We will contact you within 2 business days.', 'success');
+                    applicationForm.reset();
+                } else {
+                    showMessage('Please fill in all required fields.', 'error');
+                }
+            });
+
+            // Newsletter form submission
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const email = document.getElementById('newsletterEmail').value;
+                if (email) {
+                    showMessage('Thank you for subscribing to our newsletter!', 'success');
+                    newsletterForm.reset();
+                }
+            });
+
+            function showMessage(text, type) {
+                const message = document.createElement('div');
+                message.className = `message message-${type}`;
+                message.textContent = text;
+                
+                document.body.appendChild(message);
+                
+                setTimeout(() => {
+                    message.remove();
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+</html>
