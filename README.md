@@ -1,20 +1,12 @@
-# 🏢 Meauxbility Foundation - Corporate Monorepo
 
-> **Next-generation operations platform for accessibility, innovation, and social impact**
+au·to·di·dact
+/ˌôdəˈdīˌdak(t),ˌädəˈdīˌdak(t)/
+noun
+a self-taught person. 
 
-[![Live Admin Portal](https://img.shields.io/badge/Live-Admin%20Portal-00D4AA?style=for-the-badge&logo=vercel)](https://iaudodidact.com/)
-[![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
-[![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase)](https://supabase.com/)
-[![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel)](https://vercel.com/)
+this website will be vercel domain ( https://iautodidact.app/ ) project id ( prj_AemccTFEjP7ztRJivI4wtysSyEfi ) 
 
----
 
-## 🎯 Corporate Overview
-
-**Meauxbility Foundation** is a technology-driven nonprofit focused on accessibility, innovation, and social impact. Our corporate monorepo houses all digital infrastructure, applications, and tools that power our mission.
-
-### 🌐 Live Properties
-- **Admin Portal:** [iaudodidact.com](https://iaudodidact.com/) - Operations dashboard
 - **Nonprofit Site:** [meauxbility.org](https://meauxbility.org) - Public website (migrating to Vercel)
 - **E-commerce:** [inneranimals.com](https://inneranimals.com) - Online store (migrating to Vercel)
 - **Additional Domain:** [meauxxx.com](https://meauxxx.com) - Reserved for future use
