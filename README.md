@@ -1,5 +1,6 @@
-
 au·to·di·dact
+
+
 /ˌôdəˈdīˌdak(t),ˌädəˈdīˌdak(t)/
 noun
 a self-taught person. 
@@ -8,7 +9,11 @@ this website will be vercel domain ( https://iautodidact.app/ ) project id ( prj
 
 
 - **Nonprofit Site:** [meauxbility.org](https://meauxbility.org) - Public website (migrating to Vercel)
+
+- 
 - **E-commerce:** [inneranimals.com](https://inneranimals.com) - Online store (migrating to Vercel)
+
+- 
 - **Additional Domain:** [meauxxx.com](https://meauxxx.com) - Reserved for future use
 
 ---
